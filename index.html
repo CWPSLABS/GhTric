@@ -3,6 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  CurrentsandCurrency
+Repository navigation
+Code
+Issues
+Pull requests
+Important update
+On April 24 we'll start using GitHub Copilot interaction data for AI model training unless you opt out. Review this update and manage your preferences in your GitHub account settings.
+CurrentsandCurrency
+/
+index.html
+in
+main
+
+Edit
+
+Preview
+ @@ -3,30 +3,7 @@
+ <head>
+ <head>
+   <meta charset="UTF-8" />
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- Primary SEO -->
 <meta name="description" content="GhTric — Real-time Ghana finance and weather dashboard. Track GHS exchange rates, GSE stocks, crypto prices, fuel prices and local weather." />
 <meta name="keywords" content="Ghana finance, GHS exchange rate, GSE stocks, Ghana weather, fuel prices Ghana, crypto Ghana, cedi rate" />
@@ -25,8 +48,7 @@
 
 <!-- Favicon -->
 <link rel="icon" type="image/svg" href="assets/icons/Flag_of_Ghana.svg.webp" />
-  
-  <title>GhTric — Finance & Weather Dashboard</title>
+  <title>GhTric — Ghana Finance & Weather Dashboard</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -42,8 +64,7 @@
   <header class="site-header">
     <div class="header-inner">
       <div class="logo">
-       <img src="assets/icons/Flag_of_Ghana.svg.webp" alt="Ghana Flag" class="logo-flag-img" />
-
+        <span class="logo-flag">🇬🇭</span>
         <span class="logo-text">GhTric</span>
       </div>
       <div class="header-meta">
@@ -51,7 +72,6 @@
         <span id="location-display" class="location-tag">📍 Accra, GH</span>
       </div>
     </div>
-    <!-- scrolling ticker -->
     <div class="ticker-bar">
       <div class="ticker-track" id="ticker-track">
         <span class="ticker-loading">Loading market data...</span>
@@ -84,17 +104,6 @@
       </div>
     </section>
 
-    <!-- GSE STOCKS SECTION -->
-    <section class="panel stocks-panel" id="stocks-section">
-      <div class="panel-header">
-        <h2 class="panel-title">GSE Market</h2>
-       
-      </div>
-      <div id="stocks-widget" class="widget-content">
-        <div class="skeleton-loader"></div>
-      </div>
-    </section>
-
     <!-- CRYPTO SECTION -->
     <section class="panel crypto-panel" id="crypto-section">
       <div class="panel-header">
@@ -106,27 +115,15 @@
       </div>
     </section>
 
-    <!-- FUEL SECTION -->
-    <section class="panel fuel-panel" id="fuel-section">
-      <div class="panel-header">
-        <h2 class="panel-title">Fuel Prices</h2>
-        <span class="update-tag" id="fuel-updated"></span>
-      </div>
-      <div id="fuel-widget" class="widget-content">
-        <div class="skeleton-loader"></div>
-      </div>
-    </section>
-
   </main>
 
   <footer class="site-footer">
-    <p>Data is sourced from Open-Meteo · ExchangeRate-API · CoinGecko · NPA Ghana</p>
+    <p>Data sourced from Open-Meteo · ExchangeRate-API · CoinGecko</p>
     <p class="footer-note">Rates are indicative. Not financial advice.</p>
-  <p class="footer-copyright">
-  &copy; <span id="footer-year"></span> GhTric. All rights reserved.
-</p>
+    <p class="footer-copyright">&copy; <span id="footer-year"></span> GhTric. All rights reserved.</p>
   </footer>
 
   <script type="module" src="js/app.js"></script>
 </body>
 </html>
+
