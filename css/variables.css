@@ -1,0 +1,47 @@
+/* ============================================
+   VARIABLES.CSS — Design Tokens
+   Ghana Finance & Weather Dashboard
+   ============================================ */
+
+:root {
+  /* PALETTE — deep forest green + gold + warm dark */
+  --bg-base:        #0d1117;
+  --bg-panel:       #131a22;
+  --bg-panel-hover: #1a2332;
+  --bg-accent:      #1e2d3d;
+
+  --gold:           #c9a84c;
+  --gold-light:     #e6c97a;
+  --gold-dim:       #8a6f32;
+
+  --green-up:       #2dcc70;
+  --red-down:       #e74c3c;
+  --neutral:        #7f8c8d;
+
+  --text-primary:   #eaf0f6;
+  --text-secondary: #8a9bb0;
+  --text-muted:     #4a5568;
+
+  --border:         rgba(201, 168, 76, 0.15);
+  --border-strong:  rgba(201, 168, 76, 0.4);
+
+  /* TYPOGRAPHY */
+  --font-display: 'Syne', sans-serif;
+  --font-mono:    'DM Mono', monospace;
+
+  /* SPACING */
+  --space-xs:  4px;
+  --space-sm:  8px;
+  --space-md:  16px;
+  --space-lg:  24px;
+  --space-xl:  40px;
+
+  /* RADIUS */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  /* TRANSITIONS */
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur:  0.3s;
+}

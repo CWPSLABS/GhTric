@@ -1,0 +1,352 @@
+/* ============================================
+   COMPONENTS.CSS — Panels, Cards, Widgets
+   ============================================ */
+
+/* ---- PANEL ---- */
+.panel {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  transition: border-color var(--dur) var(--ease);
+  animation: fadeSlideIn 0.5s var(--ease) both;
+}
+
+.panel:hover { border-color: var(--border-strong); }
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.weather-panel  { animation-delay: 0.05s; }
+.currency-panel { animation-delay: 0.10s; }
+.crypto-panel   { animation-delay: 0.15s; }
+.stocks-panel   { animation-delay: 0.20s; }
+.fuel-panel     { animation-delay: 0.25s; }
+
+/* ---- PANEL HEADER ---- */
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--border);
+}
+
+.panel-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.base-tag {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 400;
+  background: var(--bg-accent);
+  color: var(--gold);
+  padding: 2px 8px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+}
+
+.live-badge {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  background: rgba(201, 168, 76, 0.12);
+  color: var(--gold-dim);
+  border: 1px solid var(--gold-dim);
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+
+.update-tag {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+/*----GH FLAG***/
+.logo-flag-img {
+  width: 28px;
+  height: 20px;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+/* ---- REFRESH BUTTON ---- */
+.refresh-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--bg-accent);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  display: grid;
+  place-items: center;
+  transition: all var(--dur) var(--ease);
+}
+
+.refresh-btn:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: rotate(90deg);
+}
+
+.refresh-btn.spinning {
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ---- SKELETON LOADER ---- */
+.skeleton-loader {
+  width: 100%;
+  height: 120px;
+  background: linear-gradient(90deg,
+    var(--bg-accent) 25%,
+    rgba(201,168,76,0.05) 50%,
+    var(--bg-accent) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: var(--radius-md);
+}
+
+@keyframes shimmer {
+  from { background-position: 200% 0; }
+  to   { background-position: -200% 0; }
+}
+
+/* ---- WEATHER WIDGET ---- */
+.weather-main {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--space-md);
+}
+
+.weather-temp {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.weather-temp sup { font-size: 1.2rem; color: var(--text-secondary); }
+
+.weather-icon { font-size: 3rem; }
+
+.weather-desc {
+  text-transform: capitalize;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+.weather-city {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--gold);
+}
+
+.weather-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+
+.weather-detail-item {
+  background: var(--bg-accent);
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm) var(--space-md);
+  font-size: 0.72rem;
+}
+
+.weather-detail-label { color: var(--text-secondary); margin-bottom: 2px; }
+.weather-detail-value { color: var(--text-primary); font-weight: 500; }
+
+/* ---- CURRENCY WIDGET ---- */
+.fx-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.fx-table th {
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  padding-bottom: var(--space-sm);
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.fx-table td {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  font-size: 0.82rem;
+  vertical-align: middle;
+}
+
+.fx-pair {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.fx-flag { font-size: 1rem; }
+.fx-code { color: var(--text-primary); font-weight: 500; }
+.fx-name { color: var(--text-secondary); font-size: 0.72rem; display: block; }
+
+.fx-rate { font-variant-numeric: tabular-nums; color: var(--text-primary); text-align: right; }
+
+.fx-change {
+  text-align: right;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+.fx-change.up   { color: var(--green-up); }
+.fx-change.down { color: var(--red-down); }
+
+/* ---- CRYPTO WIDGET ---- */
+.crypto-list { display: flex; flex-direction: column; gap: var(--space-sm); }
+
+.crypto-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-accent);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-md);
+  transition: background var(--dur) var(--ease);
+}
+
+.crypto-item:hover { background: #243040; }
+
+.crypto-left { display: flex; align-items: center; gap: 10px; }
+
+.crypto-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--bg-base);
+  display: grid;
+  place-items: center;
+  font-size: 1rem;
+}
+
+.crypto-name   { font-weight: 500; color: var(--text-primary); font-size: 0.85rem; }
+.crypto-symbol { color: var(--text-secondary); font-size: 0.72rem; }
+
+.crypto-right { text-align: right; }
+.crypto-price {
+  font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+.crypto-change { font-size: 0.72rem; font-weight: 500; }
+.crypto-change.up   { color: var(--green-up); }
+.crypto-change.down { color: var(--red-down); }
+
+/* ---- STOCKS WIDGET ---- */
+.stocks-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.stocks-table th {
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  padding-bottom: var(--space-sm);
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.stocks-table td {
+  padding: 9px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  font-size: 0.80rem;
+  vertical-align: middle;
+}
+
+.stock-ticker { color: var(--gold); font-weight: 600; font-size: 0.78rem; }
+.stock-company { color: var(--text-secondary); font-size: 0.70rem; }
+.stock-price { font-variant-numeric: tabular-nums; color: var(--text-primary); text-align: right; }
+.stock-change { text-align: right; font-size: 0.75rem; font-weight: 500; }
+.stock-change.up   { color: var(--green-up); }
+.stock-change.down { color: var(--red-down); }
+.stock-vol { color: var(--text-secondary); font-size: 0.70rem; text-align: right; }
+
+.gse-composite {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  background: var(--bg-accent);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.gse-index-val {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--gold);
+}
+
+.gse-label { font-size: 0.70rem; color: var(--text-secondary); }
+.gse-change { font-size: 0.85rem; font-weight: 600; }
+.gse-change.up   { color: var(--green-up); }
+.gse-change.down { color: var(--red-down); }
+
+/* ---- FUEL WIDGET ---- */
+.fuel-list { display: flex; flex-direction: column; gap: var(--space-sm); }
+
+.fuel-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--bg-accent);
+  border-radius: var(--radius-md);
+}
+
+.fuel-left { display: flex; align-items: center; gap: 10px; }
+.fuel-icon { font-size: 1.2rem; }
+.fuel-name { color: var(--text-primary); font-weight: 500; font-size: 0.82rem; }
+.fuel-company { color: var(--text-secondary); font-size: 0.68rem; }
+.fuel-price { font-variant-numeric: tabular-nums; color: var(--gold); font-weight: 600; font-size: 0.95rem; }
+.fuel-unit  { color: var(--text-secondary); font-size: 0.68rem; }
+
+/* ---- ERROR STATE ---- */
+.error-state {
+  text-align: center;
+  padding: var(--space-lg);
+  color: var(--text-muted);
+  font-size: 0.80rem;
+}
+
+.error-state .error-icon { font-size: 1.5rem; margin-bottom: var(--space-sm); }
+.error-state .retry-link {
+  color: var(--gold);
+  cursor: pointer;
+  text-decoration: underline;
+  margin-top: 4px;
+  display: block;
+}

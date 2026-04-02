@@ -1,0 +1,43 @@
+/* ============================================
+   RESPONSIVE.CSS
+   ============================================ */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr 1fr;
+    padding: 0 var(--space-lg);
+  }
+
+  .weather-panel  { grid-column: 1 / 2; grid-row: 1; }
+  .currency-panel { grid-column: 2 / 3; grid-row: 1; }
+  .crypto-panel   { grid-column: 1 / 2; grid-row: 2; }
+  .fuel-panel     { grid-column: 2 / 3; grid-row: 2; }
+  .stocks-panel   { grid-column: 1 / 3; grid-row: 3; }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .header-inner {
+    padding: var(--space-md);
+  }
+
+  .header-meta { gap: var(--space-md); }
+  .time-display { display: none; }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+    padding: 0 var(--space-md);
+    margin: var(--space-lg) auto;
+    gap: var(--space-md);
+  }
+
+  .weather-panel,
+  .currency-panel,
+  .crypto-panel,
+  .fuel-panel,
+  .stocks-panel { grid-column: 1; grid-row: auto; }
+
+  .weather-temp { font-size: 2.8rem; }
+  .gse-index-val { font-size: 1.4rem; }
+}

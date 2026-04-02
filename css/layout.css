@@ -1,0 +1,120 @@
+/* ============================================
+   LAYOUT.CSS — Grid, Header, Footer
+   ============================================ */
+
+/* ---- HEADER ---- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(13, 17, 23, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md) var(--space-xl);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.logo-flag { font-size: 1.4rem; }
+
+.logo-text {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: var(--gold);
+  letter-spacing: -0.03em;
+}
+
+.header-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.time-display {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.05em;
+}
+
+.location-tag {
+  background: var(--bg-accent);
+  border: 1px solid var(--border);
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+}
+
+/* ---- TICKER BAR ---- */
+.ticker-bar {
+  border-top: 1px solid var(--border);
+  background: var(--bg-panel);
+  overflow: hidden;
+  padding: 6px 0;
+}
+
+.ticker-track {
+  display: flex;
+  gap: var(--space-xl);
+  white-space: nowrap;
+  animation: ticker-scroll 40s linear infinite;
+  padding: 0 var(--space-xl);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.ticker-track:hover { animation-play-state: paused; }
+
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.ticker-item { display: inline-flex; align-items: center; gap: 6px; }
+.ticker-symbol { color: var(--gold); font-weight: 500; }
+.ticker-value  { color: var(--text-primary); }
+.ticker-change.up   { color: var(--green-up); }
+.ticker-change.down { color: var(--red-down); }
+
+/* ---- MAIN DASHBOARD GRID ---- */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: var(--space-lg);
+  max-width: 1400px;
+  margin: var(--space-xl) auto;
+  padding: 0 var(--space-xl);
+}
+
+/* Grid placement */
+.weather-panel  { grid-column: 1 / 2; grid-row: 1; }
+.currency-panel { grid-column: 2 / 3; grid-row: 1; }
+.crypto-panel   { grid-column: 3 / 4; grid-row: 1; }
+.stocks-panel   { grid-column: 1 / 3; grid-row: 2; }
+.fuel-panel     { grid-column: 3 / 4; grid-row: 2; }
+
+/* ---- FOOTER ---- */
+.site-footer {
+  text-align: center;
+  padding: var(--space-xl);
+  color: var(--text-primary);
+  font-size: 0.72rem;
+  border-top: 1px solid var(--border);
+  max-width: 1400px;
+  margin: 0 auto;
+  line-height: 2;
+}
