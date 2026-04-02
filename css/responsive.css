@@ -2,21 +2,19 @@
    RESPONSIVE.CSS
    ============================================ */
 
-/* Tablet */
+/* Tablet — stack into 2 columns */
 @media (max-width: 1024px) {
   .dashboard-grid {
     grid-template-columns: 1fr 1fr;
     padding: 0 var(--space-lg);
   }
 
-  .weather-panel  { grid-column: 1 / 2; grid-row: 1; }
-  .currency-panel { grid-column: 2 / 3; grid-row: 1; }
-  .crypto-panel   { grid-column: 1 / 2; grid-row: 2; }
-  .fuel-panel     { grid-column: 2 / 3; grid-row: 2; }
-  .stocks-panel   { grid-column: 1 / 3; grid-row: 3; }
+  .weather-panel  { grid-column: 1; }
+  .currency-panel { grid-column: 2; }
+  .crypto-panel   { grid-column: 1 / 3; } /* full width on tablet */
 }
 
-/* Mobile */
+/* Mobile — single column */
 @media (max-width: 640px) {
   .header-inner {
     padding: var(--space-sm) var(--space-md);
@@ -25,7 +23,7 @@
 
   .logo-text {
     font-size: 1rem;
-    max-width: 120px;
+    max-width: 130px;
   }
 
   .header-meta {
@@ -50,14 +48,10 @@
 
   .weather-panel,
   .currency-panel,
-  .crypto-panel,
-  .fuel-panel,
-  .stocks-panel { grid-column: 1; grid-row: auto; }
+  .crypto-panel { grid-column: 1; }
 
   .weather-temp { font-size: 2.8rem; }
-  .gse-index-val { font-size: 1.4rem; }
 
-  /* Weather city name — prevent wrapping on small screens */
   .weather-city {
     font-size: 0.80rem;
     white-space: nowrap;
