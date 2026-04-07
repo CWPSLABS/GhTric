@@ -1,5 +1,7 @@
 // ============================================
-// api/weather.js — Open-Meteo (no key needed)
+// api/weather.js — WeatherAPI.com
+// Free: 1,000,000 calls/month
+// Docs: https://www.weatherapi.com/docs/
 // ============================================
 import { CONFIG } from '../config.js';
 import { cache } from '../utils/cache.js';
@@ -9,23 +11,9 @@ export async function fetchWeather(lat = CONFIG.DEFAULT_LAT, lng = CONFIG.DEFAUL
   const cached = cache.get(cacheKey);
   if (cached) return cached;
 
-  const params = new URLSearchParams({
-    latitude: lat,
-    longitude: lng,
-    current: [
-      'temperature_2m',
-      'relative_humidity_2m',
-      'apparent_temperature',
-      'weather_code',
-      'wind_speed_10m',
-      'precipitation',
-    ].join(','),
-    hourly: 'temperature_2m',
-    timezone: 'Africa/Accra',
-    forecast_days: 1,
-  });
+  const url = `https://api.weatherapi.com/v1/current.json?key=${CONFIG.WEATHERAPI_KEY}&q=${lat},${lng}&aqi=no`;
 
-  const res = await fetch(`${CONFIG.URLS.weather}?${params}`);
+  const res = await fetch(url);
   if (!res.ok) throw new Error(`Weather fetch failed: ${res.status}`);
 
   const data = await res.json();
@@ -34,8 +22,7 @@ export async function fetchWeather(lat = CONFIG.DEFAULT_LAT, lng = CONFIG.DEFAUL
 }
 
 /**
- * Reverse-geocode lat/lng to a short suburb/city name.
- * Prioritises suburb over district to avoid long municipal names on mobile.
+ * Reverse-geocode lat/lng to short city name
  */
 export async function getCityName(lat, lng) {
   try {
@@ -54,7 +41,6 @@ export async function getCityName(lat, lng) {
              || addr?.county
              || CONFIG.DEFAULT_CITY;
 
-    // Hard cap at 20 characters to protect mobile layout
     return raw.length > 20 ? raw.slice(0, 20).trim() + '…' : raw;
   } catch {
     return CONFIG.DEFAULT_CITY;
